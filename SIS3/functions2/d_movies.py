@@ -1,6 +1,3 @@
-def IMDBs(movies):
-    return movies["imdb"] > 5.5
-
 movies = [
 {
 "name": "Usual Suspects", 
@@ -78,5 +75,3 @@ movies = [
 "category": "Romance"
 }
 ]
-
-print(IMDBs(movies))
