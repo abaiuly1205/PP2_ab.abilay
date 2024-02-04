@@ -1,11 +1,11 @@
 from d_movies import movies
 
 def av(movies):
-    a = 0
-    cnt = 0
+    sum = 0
+    num = 0
     for i in movies:
-        a += i["imdb"]
-        cnt += 1
-    print(a/cnt)
+        sum += i["imdb"]
+        num += 1
+    print(sum/num)
 
 av(movies)
