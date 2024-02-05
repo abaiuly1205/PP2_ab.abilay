@@ -18,8 +18,8 @@ class Point:
     
 p = Point()
 s = p.show()
-print(s)
 m = p.move()
-print(m)
 d = p.dist()
+print(s)
+print(m)
 print(d)
