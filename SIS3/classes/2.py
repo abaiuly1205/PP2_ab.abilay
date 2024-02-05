@@ -6,12 +6,12 @@ class Shape:
         return 0
 
 class square(Shape):
-    def __init__(self, length):
+    def __init__(self, l):
         super().__init__()
-        self.length = length
+        self.l = l
 
     def area(self):
-        return self.length ** 2
+        return self.l ** 2
 
 shape = Shape()
 print(shape.area())
