@@ -15,5 +15,5 @@ class Rectangle(Shape):
 shape = Shape()
 print(shape.area())
 
-r = Rectangle(int(input()))
+r = Rectangle(int(input()), int(input()))
 print(r.area())
