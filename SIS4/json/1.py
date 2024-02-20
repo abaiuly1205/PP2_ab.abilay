@@ -1,21 +1,17 @@
 import json
-with open("sample-data.json", "r") as my_file:
-    json_string = my_file.read()
-data = json.loads(json_string)
 
-interfaces = data.get('imdata', [])
-print("Interface Status")
-print("=" * 80)
-print("{:<50} {:<20} {:<8} {:<6}".format("DN", "Description", "Speed", "MTU"))
-print("-" * 50, "-" * 20, "-" * 8, "-" * 6)
+file = open('sample-data.json')
+db = json.load(file)
 
-for i in interfaces:
-    l1physif = i.get('l1PhysIf', {})
-    att = l1physif.get('attributes', {})
+print(f'\nInterface status\n{"="*80}\nDN{" "* 49}Description{" " * 11}Speed    MTU  ')
+print("-------------------------------------------------- --------------------  ------  ------")
+
+for data in db['imdata']:
+    size_of_dn = len(data["l1PhysIf"]["attributes"]["dn"])
+    size_of_descr = len(data['l1PhysIf']['attributes']['descr'])
     
-    dn = att.get('dn', '')
-    descr = att.get('descr', '')
-    speed = att.get('speed', 'inherit')
-    mtu = att.get('mtu', '')
-    
-    print("{:<50} {:<20} {:<8} {:<6}".format(dn, descr, speed, mtu))
+    print(data['l1PhysIf']['attributes']['dn'], " " * (49 - size_of_dn), 
+          data['l1PhysIf']['attributes']['descr'], " " * (20 - size_of_descr),
+          data['l1PhysIf']['attributes']['fecMode'], "",
+          data['l1PhysIf']['attributes']['mtu']
+          )
