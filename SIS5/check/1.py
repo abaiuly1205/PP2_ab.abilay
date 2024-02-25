@@ -17,4 +17,4 @@ with open('data.csv', 'w', newline='',encoding="utf8") as csvfile:
             x.group('аты'),
             float(x.group('саны').strip().replace(',','.')),
             float(x.group('бағасы').strip().replace(',','.').replace(' ',''))
-        ])
+        ]) 
