@@ -1,10 +1,10 @@
 import re
 
-def re(s):
+def resubing(s):
     pattern = r'[ ,.]'
     res = re.sub(pattern, ':', s)
     return res
 
 s = input()
-result = re(s)
+result = resubing(s)
 print(result)
