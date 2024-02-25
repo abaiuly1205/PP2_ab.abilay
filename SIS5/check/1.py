@@ -4,17 +4,17 @@ import csv
 f = open('row.txt', 'r', encoding='utf8')
 text = f.read()
 
-pattern = r"\n(?P<reti>[0-9]+)\.\n(?P<aty>.+)\n(?P<sany>.+)x(?P<bagasy>.+)\n"
+pattern = r"\n(?P<реті>[0-9]+)\.\n(?P<аты>.+)\n(?P<саны>.+)x(?P<бағасы>.+)\n"
 
 res = re.finditer(pattern, text)
 
 with open('data.csv', 'w', newline='',encoding="utf8") as csvfile:
     writer = csv.writer(csvfile)
-    writer.writerow(['reti', 'aty', 'sany', 'bagasy', 'quny'])
+    writer.writerow(['реті', 'аты', 'саны', 'бағасы'])
     for x in res:
         writer.writerow([
-            x.group('reti'), 
-            x.group('aty'),
-            float(x.group('sany').strip().replace(',','.')),
-            float(x.group('bagasy').strip().replace(',','.').replace(' ',''))
+            x.group('реті'), 
+            x.group('аты'),
+            float(x.group('саны').strip().replace(',','.')),
+            float(x.group('бағасы').strip().replace(',','.').replace(' ',''))
         ])
