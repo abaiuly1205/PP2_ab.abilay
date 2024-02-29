@@ -1,9 +1,10 @@
 import os 
    
 path = os.getcwd() 
+
+dir_list = os.listdir(path)
    
-print("Directories in '", path, "' :")  
-dir_list = os.listdir(path) 
-for dir in dir_list:
-    if os.path.isdir:
+print("Files in '", path ,"':") 
+for dir in dir_list: 
+    if os.path.isdir(os.path.join(path, dir)):
         print(dir)
