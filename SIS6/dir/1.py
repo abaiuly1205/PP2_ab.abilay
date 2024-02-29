@@ -1,17 +1,18 @@
 import os 
    
 path = os.getcwd() 
-   
-dir_list = os.listdir(path) 
-   
+
 print("Files and directories in '", path, "' :")  
-for x in dir_list: 
-        print(x)
+with os.scandir(path) as it:
+    for x in it: 
+            print(x.name)
 print("Directories:") 
-for dir in dir_list: 
-    if os.path.isdir(os.path.join(path, dir)):
-        print(dir)
+with os.scandir(path) as it:
+    for entry in it: 
+        if entry.is_dir():
+            print(entry.name)
 print("Files:")   
-for file in dir_list:
-    if os.path.isfile(os.path.join(path, file)):
-        print(file)
+with os.scandir(path) as it:
+    for entry in it: 
+        if not entry.is_dir():
+            print(entry.name)
