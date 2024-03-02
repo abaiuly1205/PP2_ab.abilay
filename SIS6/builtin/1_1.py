@@ -1,5 +1,3 @@
-l = list(map(int, input().split()))
+l = [1, 2, 3, 4, 5]
 
-k = sum(l[1:]) + 1
-res = l[0] * k
-print(res)
+print(eval('*'.join(str(item) for item in l)))
