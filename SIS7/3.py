@@ -6,8 +6,8 @@ pygame.display.set_caption("RED ball")
 pygame.display.set_icon(pygame.image.load('images/ball.png'))
 
 done = False
-x = 300
-y = 300
+x = 400
+y = 400
 while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
