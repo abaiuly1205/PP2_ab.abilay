@@ -18,4 +18,4 @@ with open('data.csv', 'w', newline='',encoding="utf8") as csvfile:
             float(x.group('саны').strip().replace(',','.')),
             float(x.group('бағасы').strip().replace(',','.').replace(' ','')),
             float(x.group('құны').strip().replace(',','.').replace(' ',''))
-        ]) 
+        ])
