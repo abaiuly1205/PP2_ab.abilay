@@ -4,12 +4,12 @@ pygame.init()
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode((400, 400))
 pygame.display.set_caption("SoundPlay")
-pygame.display.set_icon(pygame.image.load('..//images/music.png'))
+pygame.display.set_icon(pygame.image.load('images/music.png'))
 _songs = ['music/Дос-Мұқасан - 16 қыз.mp3', 'music/Kilgore Doubtfire - Escape.mp3', 'music/The Weeknd - Out of Time.mp3']
 covers = [
-     pygame.image.load('/images/0.jpg'),
-     pygame.image.load('/images/1.jpg'),
-     pygame.image.load('/images/2.jpg')
+     pygame.image.load('images/0.jpg'),
+     pygame.image.load('images/1.jpg'),
+     pygame.image.load('images/2.jpg')
 ]
 done = True
 i = 0
