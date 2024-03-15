@@ -21,7 +21,23 @@ covers = [
     pygame.image.load('images/4.jpg'),
     pygame.image.load('images/5.jpg')
 ]
+def play_next_song():
+    global i
+    i = (i + 1) % len(_songs)
+    screen.blit(covers[i], (0, 0))
+    pygame.mixer.music.load(_songs[i])
+    pygame.mixer.music.play()
+
+
+def play_previous_song():
+    global i
+    i = (i - 1) % len(_songs)
+    screen.blit(covers[i], (0, 0))
+    pygame.mixer.music.load(_songs[i])
+    pygame.mixer.music.play()
+
 done = True
+playing = False
 i = 0
 
 while done:
@@ -30,54 +46,23 @@ while done:
                         done = False
 
     pressed = pygame.key.get_pressed()
-    if pressed[pygame.K_a]:
+    if pressed[pygame.K_RETURN]:
+        screen.blit(covers[i], (0, 0))
         pygame.mixer.music.load(_songs[i])
         pygame.mixer.music.play()
-        screen.blit(covers[i], (0, 0))
-    if i == 0:
-        if pressed[pygame.K_RIGHT]:
-            pygame.mixer.music.unload()
-            i = i + 1
-            screen.blit(covers[i], (0, 0))
-            pygame.mixer.music.load(_songs[i])
-            pygame.mixer.music.play()
-        if pressed[pygame.K_LEFT]:
-            pygame.mixer.music.unload()
-            i = 5
-            screen.blit(covers[i], (0, 0))
-            pygame.mixer.music.load(_songs[i])
-            pygame.mixer.music.play()
-        if pressed[pygame.K_SPACE]: pygame.mixer.music.pause()
-        if pressed[pygame.K_p]: pygame.mixer.music.unpause()
-    elif i > 0 and i < 5:
-        if pressed[pygame.K_RIGHT]:
-            pygame.mixer.music.unload()
-            i = i + 1
-            screen.blit(covers[i], (0, 0))
-            pygame.mixer.music.load(_songs[i])
-            pygame.mixer.music.play()
-        if pressed[pygame.K_LEFT]:
-            pygame.mixer.music.unload()
-            i = i - 1
-            screen.blit(covers[i], (0, 0))
-            pygame.mixer.music.load(_songs[i])
-            pygame.mixer.music.play()
-        if pressed[pygame.K_SPACE]: pygame.mixer.music.pause()
-        if pressed[pygame.K_p]: pygame.mixer.music.unpause()
-    elif i == 5:
-        if pressed[pygame.K_RIGHT]: 
-            pygame.mixer.music.unload()
-            i = 0
-            screen.blit(covers[i], (0, 0))
-            pygame.mixer.music.load(_songs[i])
-            pygame.mixer.music.play()
-        if pressed[pygame.K_LEFT]:
-            pygame.mixer.music.unload()
-            i = i - 1
-            screen.blit(covers[i], (0, 0))
-            pygame.mixer.music.load(_songs[i])
-            pygame.mixer.music.play()
-        if pressed[pygame.K_SPACE]: pygame.mixer.music.pause()
-        if pressed[pygame.K_p]: pygame.mixer.music.unpause()
+    
+    if pressed[pygame.K_RIGHT]: 
+        play_next_song()
+    
+    if pressed[pygame.K_LEFT]:
+        play_previous_song()
+    
+    if pressed[pygame.K_SPACE]:
+            if playing:
+                pygame.mixer.music.pause()
+                playing = False
+            else:
+                pygame.mixer.music.unpause()
+                playing = True
     pygame.display.flip()
     clock.tick(15)
