@@ -76,7 +76,7 @@ def game_over():
 
 fruit3_timer = 10
 timer = pygame.USEREVENT + 1
-pygame.time.set_timer(timer, 5000)
+pygame.time.set_timer(timer, 8000)
 
 
 while True:
