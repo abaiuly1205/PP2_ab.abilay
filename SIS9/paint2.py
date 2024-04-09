@@ -2,15 +2,14 @@ import pygame
 from random import randint
 
 pygame.init()
-# размер окна
+#размер окна
 WIDTH, HEIGHT = 800, 600
 FPS = 60
-#игровое поле
+#холст
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 finished = False
 #определения цвета
-
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
@@ -19,88 +18,61 @@ BLACK = (0, 0, 0)
 def drawRect(color, pos, width, height):
     pygame.draw.rect(screen, color, (pos[0], pos[1], width, height), 4)
 
-
 def drawCircle(color, pos, RAD):
     pygame.draw.circle(screen, color, pos, RAD,4)
 
 def drawRightTriangle(color, pos):
-    # Define the points
-
     x = pos[0]
     y = pos[1]
     triangle_size = 50
-
-    # Calculate the triangle's vertices
-
     triangle_points = [
         (x, y - triangle_size),
         (x - triangle_size, y + triangle_size),
         (x + triangle_size, y + triangle_size),
     ]
-
-    # Draw the triangle
-
     pygame.draw.polygon(screen, color, triangle_points ,4)
-def drawEquilateralTriangle( color,pos):
-    # Define the points
 
+def drawEquilateralTriangle( color,pos):
     x = pos[0]
     y = pos[1]
     triangle_size = 50
-
-    # Calculate the triangle's vertices
-
     triangle_points = [
         (x, y - triangle_size - 100),
         (x - triangle_size, y + triangle_size),
         (x + triangle_size, y + triangle_size),
     ]
-
-    # Draw the triangle
-
     pygame.draw.polygon(screen, color, triangle_points,4)
-def drawRhombus( color, pos):
-    # Define the points
 
+def drawRhombus( color, pos):
     x = pos[0]
     y = pos[1]
     rhombus_height = 50
     rhombus_width = 50
-
-    # Calculate the rhombus's vertices
     rhombus_points = [
         (x, y - rhombus_height),
         (x + rhombus_width, y),
         (x, y + rhombus_height),
         (x - rhombus_width, y),
     ]
-
-    # Drawing
-
     pygame.draw.polygon(screen, color, rhombus_points,4 )
 
-def eraser(pos, RAD):
-    pygame.draw.circle(screen, WHITE, pos, RAD)
 def drawSquare(color, pos, w, h):
     x = pos[0]
     y = pos[1]
     rect = pygame.Rect(x, y, w, h)
     pygame.draw.rect(screen, color, rect, 4)
 
-RAD = 10
+def eraser(pos, RAD):
+    pygame.draw.circle(screen, WHITE, pos, RAD)
 
+RAD = 10
 drawing = False
 color = BLACK
-
 screen.fill(pygame.Color('white'))
-
 start_pos = 0
 end_pos = 0
-
 mode = 0
-
 all_colors = []
-
 for _ in range(20):
     all_colors.append((randint(0, 255), randint(0, 255), randint(0, 255)))
 
@@ -135,9 +107,6 @@ while not finished:
                 drawRightTriangle(color, start_pos)
             if mode == 4:
                 drawEquilateralTriangle(color, start_pos)
-
-
-
 
         if event.type == pygame.MOUSEMOTION and drawing:
             if mode == 6:
