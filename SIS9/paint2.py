@@ -148,7 +148,7 @@ while not finished:
                 mode %= 7
             if event.key == pygame.K_BACKSPACE:
                 screen.fill(WHITE)
-        #изменить размет ластика
+        #изменить размер ластика
         if event.type == pygame.KEYDOWN :
             if event.key == pygame.K_UP :
                 RAD+=10

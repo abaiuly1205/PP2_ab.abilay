@@ -127,9 +127,9 @@ while True:
     # display on we see
     DISPLAYSURF.blit(background, (0, 0))
     scores = font_small.render(str(SCORE), True, BLACK)
-    DISPLAYSURF.blit(scores, (10, 10))
+    DISPLAYSURF.blit(scores, (15, 10))
     coins = font_small.render(str(COIN), True, BLACK)
-    DISPLAYSURF.blit(coins, (350, 10))
+    DISPLAYSURF.blit(coins, (370, 10))
 
     # Moves and Re-draws all Sprites
     for entity in all_sprites:
@@ -153,7 +153,7 @@ while True:
         time.sleep(1)
 
         DISPLAYSURF.fill(RED)
-        DISPLAYSURF.blit(loh, (50, 250))
+        DISPLAYSURF.blit(loh, (31, 250))
 
         pygame.display.update()
 
