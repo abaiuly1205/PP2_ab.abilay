@@ -1,9 +1,9 @@
-temp = float(input("температура: "))
-t = input("C (цельсий → фаренгейт) или F (фаренгейт → цельсий): ")
+temp = float(input("Temerature: "))
+t = input("C (C → F) or F (F → C): ")
 
 if t.upper() == "C":
     print(temp * 9/5 + 32)
 elif t.upper() == "F":
     print((temp - 32) * 5/9)
 else:
-    print("ошибка: выберите C или F")
+    print("Error: choose C or F")
